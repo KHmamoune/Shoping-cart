@@ -1,16 +1,19 @@
-import NavBar from "./NavBar"
 import PropTypes from "prop-types"
 import styles from "./styles.module.css"
 import { v4 as uuidv4 } from 'uuid';
-import ShopCard from "./ShopCard";
+import { useOutletContext } from "react-router-dom";
+import ShopCartCard from "./ShopCartCard";
 
-function ShopCart(props) {
-  let shopCartItems = props
+function ShopCart() {
+  let [shopCartItems, setShopCartItems] = useOutletContext()
   let shopCartCards = []
+
+  for (let item of shopCartItems) {
+    shopCartCards.push(<ShopCartCard key={uuidv4()} item={item} shopCartItems={shopCartItems} setShopCartItems={setShopCartItems}/>)
+  }
 
   return (
     <>
-      <NavBar></NavBar>
       <main className={styles.shop_container}>
         {shopCartCards}
       </main>

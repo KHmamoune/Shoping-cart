@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react"
 import { v4 as uuidv4 } from 'uuid';
-import NavBar from "./NavBar"
 import ShopCard from "./ShopCard"
 import styles from "./styles.module.css"
-import { Link } from "react-router-dom";
+import { useOutletContext } from "react-router-dom";
 
 function Shop() {
   let [shopItems, setShopItems] = useState(new Array())
-  let [shopCartItems, setShopCartItems] = useState(new Array())
+  let [shopCartItems, setShopCartItems] = useOutletContext()
   let shopCards = []
 
   useEffect(() => {
@@ -24,7 +23,6 @@ function Shop() {
 
   return (
     <>
-      <Link to={"/shopCart"} state={shopCartItems}>Shop Cart</Link>
       <main className={styles.shop_container}>
         {shopCards}
       </main>

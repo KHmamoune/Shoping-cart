@@ -1,11 +1,17 @@
 import PropTypes from "prop-types"
 import styles from "./styles.module.css"
 
-function ShopCard({ item, shopCartItems, setShopCartItems }) {
+function ShopCartCard({ item, shopCartItems, setShopCartItems }) {
 
   function handleClick() {
     let temp = [...shopCartItems]
-    temp.push(item)
+
+    for (let i = 0; i < shopCartItems.length; i ++) {
+      if (shopCartItems[i].id === item.id) {
+        temp.splice(i, 1)
+        break
+      }
+    }
 
     setShopCartItems(temp)
     console.log(shopCartItems)
@@ -16,18 +22,15 @@ function ShopCard({ item, shopCartItems, setShopCartItems }) {
       <h2>{item.title}</h2>
       <img src={item.image} />
       <p>{`${item.price} $`}</p>
-      <div>
-        <input type="number" />
-        <button onClick={handleClick}>Buy</button>
-      </div>
+      <button onClick={handleClick}>Remove from cart</button>
     </div>
   )
 }
 
-ShopCard.propTypes = {
+ShopCartCard.propTypes = {
   item: PropTypes.object.isRequired,
   shopCartItems: PropTypes.array,
   setShopCartItems: PropTypes.func
 }
 
-export default ShopCard
+export default ShopCartCard

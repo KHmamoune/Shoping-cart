@@ -41,3 +41,8 @@ body {
   flex-wrap: wrap;
   gap: 20px;
 }
+
+.shop_cart_count {
+  display: flex;
+  align-items: center;
+}
