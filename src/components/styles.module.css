@@ -35,6 +35,26 @@ body {
   height: 150px;
 }
 
+.shop_card > div {
+  display: flex;
+  gap: 20px;
+}
+
+.shop_card > div > button {
+  background-color: #7d857e;
+  border: none;
+  border-radius: 5px;
+  height: 30px;
+  width: 50px;
+}
+
+.shop_card > div > input {
+  border: none;
+  height: 25px;
+  border-radius: 5px;
+  background-color: #bbbbbb;
+}
+
 .shop_container {
   display: flex;
   justify-content: center;
@@ -45,4 +65,25 @@ body {
 .shop_cart_count {
   display: flex;
   align-items: center;
+}
+
+.checkout_container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  margin-inline: 30vw;
+  gap: 5em;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #804df7;
+  box-shadow: 2px 2px 10px gray;
+}
+
+.checkout_container > button {
+  background-color: #120236;
+  border: 5px solid #400386;
+  color: #dddddd;
+  font-size: 1.5rem;
+  border-radius: 10px;
+  padding: 10px 20px;
 }
